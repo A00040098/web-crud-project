@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Categories</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="loadCategories()">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html">Dashboard</a>
+        <a href="add-product.html">Add Product</a>
+        <a href="view-products.html">Products</a>
+        <a href="categories.html">Categories</a>
+      </nav>
+<div class="container">
+  <div class="card">
+    <h2>Categories</h2>
+
+    <input id="catName" placeholder="Category Name">
+    <button onclick="addCategory()">Add</button>
+
+    <ul id="catList"></ul>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/categories.js"></script>
+
+</body>
+</html>

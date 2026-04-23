@@ -1,0 +1,89 @@
+create table products (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  price numeric,
+  created_at timestamp default now()
+);
+insert into products (name, price)
+values ('Phone', 500);
+select * from products;
+alter table products enable row level security;
+
+create policy "Allow public read"
+on products
+for select
+using (true);
+create table categories (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  description text,
+  created_at timestamp default now()
+);
+alter table products
+add column category_id uuid;
+alter table products
+add constraint fk_category
+foreign key (category_id)
+references categories(id)
+on delete set null;
+insert into categories (name, description)
+values 
+('Electronics', 'Phones, laptops, gadgets'),
+('Clothing', 'Men and women fashion'),
+('Food', 'Groceries and snacks');
+
+insert into products (name, price, category_id)
+values (
+  'iPhone 15',
+  1200,
+  (select id from categories where name = 'Electronics')
+);
+
+select 
+  products.name,
+  products.price,
+  categories.name as category
+from products
+left join categories
+on products.category_id = categories.id;
+
+alter table categories enable row level security;
+
+create policy "Allow insert categories"
+on categories
+for insert
+with check (true);
+
+create policy "Allow select categories"
+on categories
+for select
+using (true);
+
+
+alter table products enable row level security;
+
+create policy "Allow all insert products"
+on products for insert
+with check (true);
+
+create policy "Allow all select products"
+on products for select
+using (true);
+
+create policy "Allow update products"
+on products for update
+using (true);
+
+create policy "Allow delete products"
+on products for delete
+using (true);
+
+alter table categories enable row level security;
+
+create policy "Allow all category actions"
+on categories
+for all
+using (true)
+with check (true);
+alter table products
+add column quantity int default 0;

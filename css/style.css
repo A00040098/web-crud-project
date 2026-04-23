@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  /* NAVBAR */
+  nav {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    padding: 14px;
+    display: flex;
+    gap: 15px;
+    animation: slideDown 0.6s ease;
+  }
+  
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  nav a:hover {
+    color: #60a5fa;
+  }
+  
+  /* CONTAINER */
+  .container {
+    padding: 25px;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  /* GLASS CARD */
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  
+    /* animation */
+    animation: popUp 0.6s ease;
+  }
+  
+  /* HEADINGS */
+  .card h2 {
+    border-left: 4px solid #60a5fa;
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* INPUTS */
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255,255,255,0.9);
+    transition: 0.3s;
+  }
+  
+  input:focus, select:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px #60a5fa;
+  }
+  
+  /* BUTTONS */
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+  
+    /* modern gradient */
+    background: linear-gradient(45deg, #2563eb, #4f46e5);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  
+    transition: 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  th {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes popUp {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
